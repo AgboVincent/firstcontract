@@ -33,7 +33,7 @@ class _SignInState extends State<SignIn> {
   String error = '';
 
   Future<String> loginUser() async {
-    String url = "http://192.168.43.42/form/user_login.php";
+    String url = "http://192.168.43.33/form/user_login.php";
     final response = await http.post(url, body: {
       "email": email,
       "password": password,
@@ -122,23 +122,31 @@ class _SignInState extends State<SignIn> {
                       setState(() => password = val);
                     }),
                 SizedBox(height: 20.0),
-                RaisedButton(
-                    padding: EdgeInsets.fromLTRB(130.0, 15.0, 130.0, 15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
+                  child: Center(
+                    child: Container(
+                      width: 400,
+                      height: 50,
+                      child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          color: Colors.green[800],
+                          child: Text(
+                            'Login',
+                            style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          ),
+                          onPressed: () async {
+                            if (_formKey.currentState.validate()) {
+                              setState(() => loading = true);
+                              loginUser();
+                              // jsonData();
+                            }
+                          }),
                     ),
-                    color: Colors.green[800],
-                    child: Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    ),
-                    onPressed: () async {
-                      if (_formKey.currentState.validate()) {
-                        setState(() => loading = true);
-                        loginUser();
-                        // jsonData();
-                      }
-                    }),
+                  ),
+                ),
                 SizedBox(height: 20.0),
                 Text(
                   error,

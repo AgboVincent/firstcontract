@@ -73,7 +73,7 @@ class _FireOutbreakState extends State<FireOutbreak> {
   }
 
   Future uploadImage() async {
-    final uri = Uri.parse('http://192.168.8.101/form/crud_post.php');
+    final uri = Uri.parse('http://192.168.43.33/form/crud_post.php');
     var request = http.MultipartRequest('POST', uri);
     request.fields['propertyType'] = propertyType.text;
      request.fields['description'] = description.text;

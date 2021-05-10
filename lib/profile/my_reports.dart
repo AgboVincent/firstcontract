@@ -36,7 +36,7 @@ class _MyReportState extends State<MyReport> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(230.0, 20.0, 10,10.0),
+                      padding: const EdgeInsets.fromLTRB(100.0, 20.0, 25,10.0),
                       child: Text(
                           "Time"
                       ),

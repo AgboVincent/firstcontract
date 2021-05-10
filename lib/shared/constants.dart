@@ -12,8 +12,6 @@ var textInputDecoration =InputDecoration(
     )
 );
 
-
-
 var textInputDecorationTwo =InputDecoration(
     fillColor: Colors.white,
     filled: true,
@@ -34,7 +32,6 @@ var textInputDecorationTwo =InputDecoration(
         },
     )
 );
-
 
 var description = InputDecoration(
     fillColor: Colors.white,

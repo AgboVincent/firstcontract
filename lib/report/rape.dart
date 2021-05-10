@@ -71,7 +71,7 @@ class _RapeState extends State<Rape> {
   }
 
   Future uploadImage() async {
-    final uri = Uri.parse('http://192.168.8.113/form/crud_post.php');
+    final uri = Uri.parse('http://192.168.43.33/form/crud_post.php');
     var request = http.MultipartRequest('POST', uri);
     request.fields['name'] = victimsName.text;
     request.fields['age'] = age.text;

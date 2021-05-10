@@ -64,7 +64,7 @@ class _SignUpState extends State<SignUp> {
 
 
    Future <List<User>> createUser() async{
-     String url = "http://192.168.8.113/form/add_user.php";
+     String url = "http://192.168.43.33/form/add_user.php";
      final response = await http.post(url, body:{
         "surname": surname,
         "firstname": firstname,
@@ -200,28 +200,36 @@ class _SignUpState extends State<SignUp> {
                     }
                 ),
                 SizedBox(height: 20.0),
-                RaisedButton (
-                    padding: EdgeInsets.fromLTRB(130.0,15.0,130.0,15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    color: Colors.green[800],
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0.0,15.0,0.0,15.0),
+                  child: Center(
+                    child: Container(
+                      width: 400,
+                      height: 50,
+                      child: RaisedButton (
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          color: Colors.green[800],
 
-                    child: Text(
-                      'SignUp',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15.0
-                      ),
-                    ),
-                    onPressed: () async {
-                      if(_formKey.currentState.validate()){
-                        setState(() => loading = true);
-                          checkPassword();
-                          createUser();
+                          child: Text(
+                            'SignUp',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.0
+                            ),
+                          ),
+                          onPressed: () async {
+                            if(_formKey.currentState.validate()){
+                              setState(() => loading = true);
+                                checkPassword();
+                                createUser();
 
-                      }
-                    }),
+                            }
+                          }),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 10.0),
 
                 Text(

@@ -40,7 +40,7 @@ class _UserInfoState extends State<UserInfo> {
   }
 
   Future uploadImage() async {
-    final uri = Uri.parse('http://192.168.8.109/form/profile_pic.php');
+    final uri = Uri.parse('http://192.168.43.33/form/profile_pic.php');
     var request = http.MultipartRequest('POST', uri);
     request.fields['email'] = "${widget.email}";
     var pic = await http.MultipartFile.fromPath("image", image.path);
@@ -102,7 +102,7 @@ class _UserInfoState extends State<UserInfo> {
                                 itemBuilder: (ctx, index) {
                                   List user = snapshot.data;
                                   String name =user[index]['email'];
-                                  String picture = "http://192.168.8.109/form/profile_pic/${user[index]['email']['profile_image']}";
+                                  String picture = "http://192.168.43.33/form/profile_pic/${user[index]['email']['profile_image']}";
                                   CustomDrawer(picture: picture,);
                                   return CircleAvatar(
                                     backgroundColor: Colors.grey,

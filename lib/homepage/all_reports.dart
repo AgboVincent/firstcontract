@@ -62,6 +62,7 @@ class _AllReportsState extends State<AllReports> {
                 color: Colors.grey,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text("${widget.nameData}"),
                   Text(" ${widget.locationData} "),
@@ -69,9 +70,14 @@ class _AllReportsState extends State<AllReports> {
                     padding: const EdgeInsets.only(left: 10.0),
                     child: Text("${widget.dateData}"),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(150.0, 0.0, 10.0, 0.0),
-                    child: Text("${widget.timeData}"),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right:20),
+                        child: Text("${widget.timeData}"),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -104,14 +110,6 @@ class _AllReportsState extends State<AllReports> {
                     Container(
                       child: Row(
                         children: <Widget>[
-                          Text(
-                            "Like",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
                           Padding(
                             padding:
                                 const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
@@ -149,14 +147,7 @@ class _AllReportsState extends State<AllReports> {
                     Container(
                       child: Row(
                         children: <Widget>[
-                          Text(
-                            "Unlike",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
+
                           LikeButton(
                               size: 20,
                               padding: const EdgeInsets.all(10.0),
@@ -201,10 +192,7 @@ class _AllReportsState extends State<AllReports> {
                             ),
                             onPressed: () {},
                           ),
-                          Text(
-                            "Comment",
-                            style: TextStyle(color: Colors.white),
-                          ),
+
                         ],
                       ),
                     ),
@@ -218,10 +206,6 @@ class _AllReportsState extends State<AllReports> {
                               size: 20,
                             ),
                             onPressed: () {},
-                          ),
-                          Text(
-                            "Share",
-                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),

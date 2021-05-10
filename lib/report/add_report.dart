@@ -104,7 +104,6 @@ class _AddReportState extends State<AddReport> {
             ),
             onTap: (){
               Navigator.push(context,  MaterialPageRoute(builder: (context) => CivilUnrest()));
-
             },
           ),
           GestureDetector(
@@ -121,7 +120,6 @@ class _AddReportState extends State<AddReport> {
             ),
             onTap: (){
               Navigator.push(context,  MaterialPageRoute(builder: (context) => FireOutbreak()));
-
             },
           )
         ],

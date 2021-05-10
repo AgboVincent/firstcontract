@@ -57,15 +57,16 @@ class _ArmedRobberyState extends State<ArmedRobbery> {
 
   File image;
   //Open gallery
+  final picker = ImagePicker();
   Future<void> chooseImage() async {
-    var choosedimage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var choosedimage = await picker.getImage(source: ImageSource.gallery);
     setState(() {
-      image = choosedimage;
+      image = File(choosedimage.path);
     });
   }
 
   Future uploadImage() async {
-    final uri = Uri.parse('http://192.168.8.113/form/armed_robbery.php');
+    final uri = Uri.parse('http://192.168.43.33/form/armed_robbery.php');
     var request = http.MultipartRequest('POST', uri);
     request.fields['itemstolen'] = itemsStolen.text;
      request.fields['description'] = description.text;
@@ -234,7 +235,8 @@ class _ArmedRobberyState extends State<ArmedRobbery> {
                       width: 200,
                       child: image == null
                           ? Text('No Image Selected')
-                          : Image.file(image)),
+                          : Image.file(image)
+                  ),
                 ),
               ),
             ),

@@ -66,9 +66,9 @@ class _FireOutbreakState extends State<FireOutbreak> {
   File image;
   //Open gallery
   Future<void> chooseImage() async {
-    var choosedimage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var choosedimage = await ImagePicker().getImage(source: ImageSource.gallery);
     setState(() {
-      image = choosedimage;
+      image = File(choosedimage.path);
     });
   }
 

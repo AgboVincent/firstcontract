@@ -54,14 +54,17 @@ class _ArmedRobberyState extends State<ArmedRobbery> {
       print(_time);
     });
   }
-
   File image;
   //Open gallery
   final picker = ImagePicker();
   Future<void> chooseImage() async {
-    var choosedimage = await picker.getImage(source: ImageSource.gallery);
+    var choosedimage = await picker.getImage(imageQuality:90, source: ImageSource.gallery, );
     setState(() {
-      image = File(choosedimage.path);
+      try{
+        image = File(choosedimage.path);
+      }catch(e){
+        print(e);
+      }
     });
   }
 

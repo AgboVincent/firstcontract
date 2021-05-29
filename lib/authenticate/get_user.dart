@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
-    String url = "http://192.168.0.146/form/get_user.php";
+    var url = Uri.parse("http://192.168.0.146/form/get_user.php");
     final response = await http.get(url);
 
     var responseData = json.decode(response.body);

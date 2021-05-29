@@ -33,7 +33,7 @@ class _SignInState extends State<SignIn> {
   String error = '';
 
   Future<String> loginUser() async {
-    String url = "http://192.168.43.33/form/user_login.php";
+    var url =Uri.parse( "http://192.168.43.33/form/user_login.php");
     final response = await http.post(url, body: {
       "email": email,
       "password": password,
@@ -54,7 +54,7 @@ class _SignInState extends State<SignIn> {
                     phonenumber: phonenumber,
                     picture: picture,
               )));
-      data = jsonDecode(message);
+      //data = jsonDecode(message);
       data.forEach((element) {
         Map obj = element;
         surname = obj['surname'];

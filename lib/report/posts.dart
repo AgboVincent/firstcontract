@@ -39,7 +39,7 @@ class _PostsState extends State<Posts> {
   List list;
 
   Future loadPosts() async {
-    var url = "http://192.168.43.33/form/get_posts.php";
+    var url = Uri.parse("http://192.168.43.33/form/get_posts.php");
     var response = await http.get(url);
     var extracted = json.decode(response.body);
     return extracted;

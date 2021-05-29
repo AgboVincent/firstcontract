@@ -32,9 +32,9 @@ class _UserInfoState extends State<UserInfo> {
   File image;
   //Open gallery
   Future<void> chooseImage() async {
-    var choosedimage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var choosedimage = await ImagePicker().getImage(source: ImageSource.gallery);
     setState(() {
-      image = choosedimage;
+      image = File(choosedimage.path);
       uploadImage();
     });
   }
@@ -53,7 +53,7 @@ class _UserInfoState extends State<UserInfo> {
     }
   }
   Future loadProfilePic() async{
-    var url = "http://192.168.8.109/form/get_user.php";
+    var url = Uri.parse( "http://192.168.8.109/form/get_user.php");
     var response = await http.get(url);
     var extracted= json.decode(response.body);
     return extracted;

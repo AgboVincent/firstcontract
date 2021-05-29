@@ -64,7 +64,7 @@ class _SignUpState extends State<SignUp> {
 
 
    Future <List<User>> createUser() async{
-     String url = "http://192.168.43.33/form/add_user.php";
+     var url = Uri.parse("http://192.168.43.33/form/add_user.php");
      final response = await http.post(url, body:{
         "surname": surname,
         "firstname": firstname,
@@ -78,6 +78,22 @@ class _SignUpState extends State<SignUp> {
 
      var responseData = json.encode(response.body);
      print(responseData);
+     showDialog(
+       context: context,
+       builder: (BuildContext context) {
+         return AlertDialog(
+           title: new Text(responseData),
+           actions: <Widget>[
+             TextButton(
+               child: new Text("OK"),
+               onPressed: () {
+                 Navigator.of(context).pop();
+               },
+             ),
+           ],
+         );
+       },
+     );
 
      if(responseData.isNotEmpty){
        Fluttertoast.showToast(
